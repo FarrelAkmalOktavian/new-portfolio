@@ -5,8 +5,8 @@ export default function About() {
     <section id="about" className="px-6 md:px-10 py-24 border-t border-line">
       <div className="mx-auto max-w-5xl grid md:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] gap-12 md:gap-16">
         <div>
-          {/* Ganti div ini dengan <img src="/foto-kamu.jpg" /> */}
-          <div className="aspect-[3/4] rounded-lg bg-surface border border-line flex items-center justify-center mb-6">
+          <img src="images.jpg" alt="" />
+          <div className="aspect-3/4 rounded-lg bg-surface border border-line flex items-center justify-center mb-6">
             <span className="text-muted text-sm">Foto profil</span>
           </div>
           <p className="text-sm text-muted">{profile.availability}</p>

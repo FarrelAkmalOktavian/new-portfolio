@@ -1,11 +1,11 @@
 export default function CaseStudyCard({ study, reversed }) {
   return (
     <article
-      className={`grid md:grid-cols-2 gap-8 md:gap-14 items-center py-12 border-b border-line ${
+      className={`grid md:grid-cols-2 gap-8 md:gap-14 items-start py-12 border-b border-line ${
         reversed ? "md:[&>*:first-child]:order-2" : ""
       }`}
     >
-      <img src="isyara.png" alt="" />
+      {/* Placeholder visual — ganti dengan <img> ke screenshot/prototype asli */}
       <div
         className="aspect-4/3 rounded-lg bg-surface border border-line flex items-center justify-center"
         role="img"

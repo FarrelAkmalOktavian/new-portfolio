@@ -1,4 +1,5 @@
 import { profile } from "../data/content";
+import LanyardResponsive from "./LanyardResponsive";
 
 export default function Hero() {
   return (
@@ -6,7 +7,8 @@ export default function Hero() {
       id="top"
       className="min-h-screen flex flex-col justify-center px-6 md:px-10 pt-24 pb-16"
     >
-      <div className="mx-auto max-w-5xl w-full">
+      <div className="mx-auto max-w-6xl w-full grid md:grid-cols-[1.3fr_1fr] gap-12 items-center">
+      <div className="max-w-2xl w-full">
         <p
           className="animate-rise text-sm text-muted mb-6"
           style={{ animationDelay: "0.05s" }}
@@ -50,6 +52,11 @@ export default function Hero() {
             Unduh resume
           </a>
         </div>
+      </div>
+
+      <div className="flex justify-center scale-90 md:scale-100">
+        <LanyardResponsive />
+      </div>
       </div>
     </section>
   );
