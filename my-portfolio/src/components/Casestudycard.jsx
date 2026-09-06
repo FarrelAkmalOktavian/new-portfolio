@@ -5,9 +5,9 @@ export default function CaseStudyCard({ study, reversed }) {
         reversed ? "md:[&>*:first-child]:order-2" : ""
       }`}
     >
-      {/* Placeholder visual — ganti dengan <img> ke screenshot/prototype asli */}
+      <img src="isyara.png" alt="" />
       <div
-        className="aspect-[4/3] rounded-lg bg-surface border border-line flex items-center justify-center"
+        className="aspect-4/3 rounded-lg bg-surface border border-line flex items-center justify-center"
         role="img"
         aria-label={study.imageAlt}
       >
