@@ -5,14 +5,23 @@ export default function CaseStudyCard({ study, reversed }) {
         reversed ? "md:[&>*:first-child]:order-2" : ""
       }`}
     >
-      {/* Placeholder visual — ganti dengan <img> ke screenshot/prototype asli */}
-      <div
-        className="aspect-4/3 rounded-lg bg-surface border border-line flex items-center justify-center"
-        role="img"
-        aria-label={study.imageAlt}
-      >
-        <span className="text-muted text-sm">Visual studi kasus</span>
-      </div>
+      {/* Kalau study.image sudah diisi (lihat content.js), tampilkan gambar asli.
+          Kalau belum, tetap tampil placeholder supaya layout tidak rusak. */}
+      {study.image ? (
+        <img
+          src={study.image}
+          alt={study.imageAlt}
+          className="aspect-4/3 rounded-lg border border-line object-cover w-full"
+        />
+      ) : (
+        <div
+          className="aspect-4/3 rounded-lg bg-surface border border-line flex items-center justify-center"
+          role="img"
+          aria-label={study.imageAlt}
+        >
+          <span className="text-muted text-sm">Visual studi kasus</span>
+        </div>
+      )}
 
       <div>
         <div className="flex items-center gap-3 mb-3">

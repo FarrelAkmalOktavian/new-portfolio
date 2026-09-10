@@ -1,5 +1,6 @@
 import { profile } from "../data/content";
-import LanyardResponsive from "./LanyardResponsive";
+//import LanyardResponsive from "./LanyardResponsive";
+import Lanyard from "./Lanyard";
 
 export default function Hero() {
   return (
@@ -55,7 +56,7 @@ export default function Hero() {
       </div>
 
       <div className="flex justify-center scale-90 md:scale-100">
-        <LanyardResponsive />
+        <Lanyard/>
       </div>
       </div>
     </section>
