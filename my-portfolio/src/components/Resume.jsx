@@ -1,4 +1,4 @@
-import { profile } from "../data/content";
+import { profile, experience, education } from "../data/content";
 
 export default function Resume() {
   return (
@@ -24,14 +24,44 @@ export default function Resume() {
           </a>
         </div>
 
-        {/* Ringkasan singkat on-page — opsional, boleh diperluas jadi timeline pengalaman */}
-        <div className="mt-12 rounded-lg border border-line bg-surface p-8">
-          <p className="font-display text-xl text-ink mb-2">{profile.name}</p>
-          <p className="text-muted mb-6">{profile.role}</p>
-          <p className="text-sm text-muted">
-            Tambahkan ringkasan pengalaman kerja / pendidikan singkat di sini,
-            atau hapus kotak ini kalau resume PDF sudah cukup.
-          </p>
+        {/* Timeline pengalaman & pendidikan — datanya diambil dari content.js,
+            tinggal edit array `experience` dan `education` di sana */}
+        <div className="mt-14 grid md:grid-cols-2 gap-12">
+          <div>
+            <h3 className="text-sm text-accent mb-6">Pengalaman</h3>
+            <div className="space-y-8">
+              {experience.map((item) => (
+                <div key={item.id} className="border-l border-line pl-5">
+                  <p className="text-xs text-muted mb-1">{item.period}</p>
+                  <p className="text-ink font-medium">{item.role}</p>
+                  <p className="text-sm text-muted mb-2">{item.org}</p>
+                  {item.description && (
+                    <p className="text-sm text-ink/80 leading-relaxed">
+                      {item.description}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-sm text-accent mb-6">Pendidikan</h3>
+            <div className="space-y-8">
+              {education.map((item) => (
+                <div key={item.id} className="border-l border-line pl-5">
+                  <p className="text-xs text-muted mb-1">{item.period}</p>
+                  <p className="text-ink font-medium">{item.degree}</p>
+                  <p className="text-sm text-muted mb-2">{item.institution}</p>
+                  {item.description && (
+                    <p className="text-sm text-ink/80 leading-relaxed">
+                      {item.description}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

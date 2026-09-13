@@ -47,7 +47,7 @@ export default function CaseStudyCard({ study, reversed }) {
           href={study.link}
           className="mt-6 inline-flex items-center gap-2 text-sm text-accent hover:underline underline-offset-4"
         >
-          Lihat studi kasus lengkap
+          {study.button}
         </a>
       </div>
     </article>

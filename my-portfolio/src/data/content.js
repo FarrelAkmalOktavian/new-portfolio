@@ -8,6 +8,9 @@
 import isyaraImage from "../assets/isyara.png";
 import gameDevImage from "../assets/gamedev.png";
 import medicoImage from "../assets/medico.png";
+import golfdemyImage from "../assets/golfdemy.png";
+import friptoImage from "../assets/fripto.png";
+import fakeImage from "../assets/fake.png";
 import placeholder from "../assets/images.jpg";
 
 export const profile = {
@@ -50,6 +53,7 @@ export const caseStudies = [
     link: "https://github.com/Isyara-App/MobileDevelopment",
     image: isyaraImage,
     imageAlt: "Tampilan aplikasi Isyara",
+    button: "Link Github Project",
   },
   {
     id: "case-02",
@@ -63,6 +67,7 @@ export const caseStudies = [
     link: "https://youtu.be/hzSi6xsUV_0?si=zY0rPsrgvuuebxko",
     image: gameDevImage,
     imageAlt: "Screenshoot gameplay",
+    button: "Link Preview Project",
   },
   {
     id: "case-03",
@@ -71,10 +76,11 @@ export const caseStudies = [
     year: "2025",
     role: "Designer",
     summary:
-      "Desain tampilan untuk aplikasi layanan kesehatan di mobile dan juga web.",
+      "Desain tampilan untuk aplikasi layanan kesehatan di mobile dan juga web. Desain aplikasi dibuat simple, minimalist, dan juga tidak melupakan kenyamanan serta kemudahan pengguna dalam navigasi aplikasi ini",
     link: "https://www.figma.com/design/D9BCwOJrtNeHpaL17mEmx1/Medical-Healthcare?node-id=0-1&t=Y1d6vZCQQCetZ1tf-1",
     image: medicoImage,
     imageAlt: "Overview tampilan desain",
+    button: "Link Figma Desain",
   },
   {
     id: "case-04",
@@ -86,8 +92,9 @@ export const caseStudies = [
       "Dibuat sebagai project tugas akhir skripsi, digunakan untuk mendeteksi ulasan palsu berbasis teks yang dibuat oleh AI (AI Generated)",
     outcome: "Python",
     link: "https://github.com/FarrelAkmalOktavian/Fake-Review-Detection",
-    image: placeholder,
+    image: fakeImage,
     imageAlt: "Tampilan aplikasi web",
+    button: "Link Project",
   },
   {
     id: "case-05",
@@ -99,8 +106,9 @@ export const caseStudies = [
       "Desain web landing page profesional dan modern untuk golf academy",
     outcome: "Tulis dampak/metrik nyata di sini kalau ada.",
     link: "https://dribbble.com/shots/27667764-Golfdemy-Golf-Academy-Landing-Page",
-    image: placeholder,
+    image: golfdemyImage,
     imageAlt: "Cover dribbble desain",
+    button: "Link Preview Desain",
   },
   {
     id: "case-06",
@@ -112,8 +120,9 @@ export const caseStudies = [
       "Desain dashboard untuk pengelolaan crypto",
     outcome: "Tulis dampak/metrik nyata di sini kalau ada.",
     link: "https://dribbble.com/shots/26220032-Fripto-Crypto-Management-Dashboard",
-    image: placeholder,
+    image: friptoImage,
     imageAlt: "Cover dribbble desain",
+    button: "Link Preview Desain",
   },
 ];
 
@@ -147,26 +156,32 @@ export const navLinks = [
 export const experience = [
   {
     id: "exp-01",
-    role: "Jabatan kamu", // EDIT ME
-    org: "Nama perusahaan / klien / organisasi", // EDIT ME
-    period: "Jan 2025 — Sekarang", // EDIT ME
-    description: "Satu-dua kalimat soal tanggung jawab atau pencapaian di posisi ini.", // EDIT ME
+    role: "Game Programmer & Game Artist", // EDIT ME
+    org: "DTS TSA & KOMDIGI", // EDIT ME
+    period: "Jul 2024 — Sep 2024", // EDIT ME
+    description: "Kompetisi Pengembangan game - Top 20", // EDIT ME
+  },{
+    id: "exp-02",
+    role: "Mobile Development Cohort", // EDIT ME
+    org: "Bangkit Academy - Yayasan Dicoding Indonesia", // EDIT ME
+    period: "Sep 2024 — Des 2024", // EDIT ME
+    description: "Belajar tentang dasar-dasar tentang pemrograman sebuah aplikasi mobile sampai membuat aplikasi mobile yang memiliki fungsi nyata sebagai proyek akhir", // EDIT ME
   },
   {
-    id: "exp-02",
-    role: "Jabatan sebelumnya",
-    org: "Nama perusahaan / klien / organisasi",
-    period: "Jun 2023 — Des 2024",
-    description: "Satu-dua kalimat soal tanggung jawab atau pencapaian di posisi ini.",
+    id: "exp-03",
+    role: "UI/UX Designer",
+    org: "PT Nifty Teknologi Edukasi",
+    period: "Mar 2025 — Agu 2025",
+    description: "Mempelajari cara membuat desain UI/UX yang baik, prototype yang menarik, dan juga memastikan desain yang buat sesuai dengan kebutuhan pengguna.",
   },
 ];
  
 export const education = [
   {
     id: "edu-01",
-    degree: "Jenjang & jurusan", // EDIT ME, mis. "S1 Desain Komunikasi Visual"
-    institution: "Nama sekolah/kampus", // EDIT ME
+    degree: "S1 Teknik Informatika", // EDIT ME, mis. "S1 Desain Komunikasi Visual"
+    institution: "Universitas Negeri Semarang", // EDIT ME
     period: "2022 — 2026", // EDIT ME
-    description: "Opsional — fokus studi, organisasi, atau pencapaian relevan.",
+    description: "IPK 3,81 - Mengkuti Organisasi Himpunan Mahasiswa - Skripsi berhubungan dengan Machine Learning",
   },
 ];
