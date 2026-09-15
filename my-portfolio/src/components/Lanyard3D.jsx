@@ -14,7 +14,7 @@ export default function Lanyard3D({
   fov = 20,
 }) {
   return (
-    <div className="w-full h-120 md:h-140">
+    <div className="w-85 h-120 sm:w-95 sm:h-135 mx-auto">
       <Canvas
         camera={{ position, fov }}
         gl={{ alpha: true }}

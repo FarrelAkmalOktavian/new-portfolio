@@ -1,12 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { profile } from "../data/content";
-
-const initials = profile.name
-  .split(" ")
-  .slice(0, 2)
-  .map((w) => w[0])
-  .join("")
-  .toUpperCase();
+import fotoProfil from "../assets/me.JPEG";
 
 export default function Lanyard() {
   const wrapperRef = useRef(null);
@@ -62,9 +56,9 @@ export default function Lanyard() {
     const dx = e.clientX - lastXRef.current;
     lastXRef.current = e.clientX;
     if (reducedMotionRef.current) return; // abaikan drag visual, cukup diam
-    const next = Math.max(-MAX_ANGLE, Math.min(MAX_ANGLE, angleRef.current + dx * 0.6));
+    const next = Math.max(-MAX_ANGLE, Math.min(MAX_ANGLE, angleRef.current - dx * 0.6));
     angleRef.current = next;
-    velRef.current = dx * 0.6;
+    velRef.current = -dx * 0.6;
     if (wrapperRef.current) wrapperRef.current.style.transform = `rotate(${next}deg)`;
   }
 
@@ -103,29 +97,29 @@ export default function Lanyard() {
           {/* lubang pons */}
           <div className="w-4 h-4 rounded-full border-2 border-line bg-background -mb-2 mx-auto" />
 
-          {/* kartu ID */}
-          <div className="w-64 rounded-2xl bg-surface border border-line p-6 pt-8 shadow-2xl">
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-full bg-accent flex items-center justify-center shrink-0">
-                <span className="text-lg font-semibold text-background">{initials}</span>
-              </div>
-              <div className="min-w-0">
-                <p className="font-display text-lg leading-tight text-ink truncate">
-                  {profile.name}
-                </p>
-              </div>
-            </div>
+          {/* kartu ID — rasio 2:3, manjang ke bawah */}
+          <div className="w-60 h-90 rounded-2xl bg-surface border border-line shadow-2xl overflow-hidden flex flex-col">
+            <img
+              src={fotoProfil}
+              alt={profile.name}
+              className="w-full h-52.5 object-cover shrink-0"
+            />
 
-            <p className="mt-3 text-sm text-muted">{profile.role}</p>
+            <div className="p-4 flex flex-col flex-1 min-h-0">
+              <p className="font-display text-lg leading-tight text-ink truncate">
+                {profile.name}
+              </p>
+              <p className="mt-1 text-sm text-muted truncate">{profile.role}</p>
 
-            <div className="mt-4 h-px w-full bg-line" />
+              <div className="mt-3 h-px w-full bg-line" />
 
-            <div className="mt-4 flex items-end justify-between">
-              <span className="text-[11px] text-muted">Portfolio · 2026</span>
-              <div className="flex items-end gap-0.5 h-4">
-                {[3, 5, 2, 4, 6, 2, 5, 3, 4].map((h, i) => (
-                  <div key={i} style={{ width: 2, height: `${h * 2.5}px` }} className="bg-line" />
-                ))}
+              <div className="mt-auto pt-3 flex items-end justify-between">
+                <span className="text-[11px] text-muted">Portfolio · 2026</span>
+                <div className="flex items-end gap-0.5 h-4">
+                  {[3, 5, 2, 4, 6, 2, 5, 3, 4].map((h, i) => (
+                    <div key={i} style={{ width: 2, height: `${h * 2.5}px` }} className="bg-line" />
+                  ))}
+                </div>
               </div>
             </div>
           </div>

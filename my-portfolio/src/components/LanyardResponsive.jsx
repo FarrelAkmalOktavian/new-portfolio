@@ -1,5 +1,6 @@
 import { Suspense, lazy, useEffect, useState } from "react";
 import Lanyard from "./Lanyard";
+import LanyardErrorBoundary from "./LanyardErrorBoundary";
 
 // Chunk 3D (three.js + rapier + meshline) di-split terpisah dan cuma di-load
 // kalau memang mau dipakai — supaya initial bundle & Lighthouse mobile tidak kena dampak.
@@ -27,8 +28,10 @@ export default function LanyardResponsive() {
   }
 
   return (
-    <Suspense fallback={<Lanyard />}>
-      <Lanyard3D />
-    </Suspense>
+    <LanyardErrorBoundary>
+      <Suspense fallback={<Lanyard />}>
+        <Lanyard3D />
+      </Suspense>
+    </LanyardErrorBoundary>
   );
 }

@@ -22,7 +22,7 @@ export const profile = {
     "dari layar ke rasa.",
   ],
   heroSubtext:
-    "UI/UX designer yang juga menulis kode — sedikit web, sedikit mobile, sedikit game — supaya setiap desain yang saya buat memang bisa dibangun.",
+    "UI/UX designer yang juga menulis kode, sedikit web, sedikit mobile, sedikit game, supaya setiap desain yang saya buat memang bisa dibangun.",
   bio: [
     "Saya mulai dari rasa penasaran soal kenapa satu aplikasi terasa enak dipakai dan yang lain bikin frustrasi. Dari situ saya belajar desain, lalu belajar membangunnya sendiri — supaya keputusan desain saya nggak berhenti di mockup.",
     "Fokus utama saya UI/UX, tapi saya senang keluar-masuk web, mobile, dan game development kalau itu bikin saya lebih paham masalah yang sedang saya rancang solusinya.",
@@ -31,7 +31,7 @@ export const profile = {
   availability: "Terbuka untuk peran full-time & proyek freelance",
   email: "farrelakmal5772@gmail.com",
   linkedin: "https://www.linkedin.com/in/farrelakmal",
-  github: "https://github.com/farrelakmal",
+  github: "https://github.com/FarrelAkmalOktavian",
   resumeFile: "/resume.pdf",
   responseTime: "Biasanya balas dalam 2 hari kerja.",
   dribbble: "https://dribbble.com/farrelakmal",

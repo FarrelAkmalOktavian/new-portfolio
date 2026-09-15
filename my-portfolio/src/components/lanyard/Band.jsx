@@ -41,10 +41,32 @@ export default function Band() {
   );
   const [dragOffset, setDragOffset] = useState(null);
   const [hovered, setHovered] = useState(false);
-  // Ganti file public/lanyard/card-front.png dengan desain kartu kamu sendiri —
-  // ukuran disarankan 512x720px (rasio sama dengan RoundedBox di bawah).
+  // Ganti file public/lanyard/card-front.png dengan desain kartu kamu sendiri.
+  // Rasio idealnya 512x720px, tapi kalau beda pun tetap aman — useEffect di bawah
+  // otomatis crop-tengah (mirip object-fit: cover) supaya gambar tidak gepeng.
   const texture = useTexture("/lanyard/card-front.png");
   const { width, height } = useThree((s) => s.size);
+
+  const CARD_ASPECT = 1.36 / 1.92; // harus sama dengan args RoundedBox di bawah
+
+  useEffect(() => {
+    if (!texture?.image) return;
+    const imgAspect = texture.image.width / texture.image.height;
+
+    if (imgAspect > CARD_ASPECT) {
+      // gambar lebih lebar dari kartu -> crop sisi kiri & kanan
+      const scale = CARD_ASPECT / imgAspect;
+      texture.repeat.set(scale, 1);
+      texture.offset.set((1 - scale) / 2, 0);
+    } else {
+      // gambar lebih tinggi/sempit dari kartu -> crop atas & bawah
+      const scale = imgAspect / CARD_ASPECT;
+      texture.repeat.set(1, scale);
+      texture.offset.set(0, (1 - scale) / 2);
+    }
+    texture.wrapS = texture.wrapT = THREE.ClampToEdgeWrapping;
+    texture.needsUpdate = true;
+  }, [texture]);
 
   // 3 segmen tali (rope joint = jarak maksimum antar titik), lalu kartu
   // disambung ke ujung tali pakai spherical joint (seperti sendi bola).
@@ -90,22 +112,22 @@ export default function Band() {
     <>
       <group position={[0, 4, 0]}>
         <RigidBody ref={fixed} {...SEGMENT_PROPS} type="fixed" />
-        <RigidBody position={[0.5, 0, 0]} ref={j1} {...SEGMENT_PROPS}>
+        <RigidBody position={[0.1, 0, 0]} ref={j1} {...SEGMENT_PROPS}>
           <BallCollider args={[0.1]} />
         </RigidBody>
-        <RigidBody position={[1, 0, 0]} ref={j2} {...SEGMENT_PROPS}>
+        <RigidBody position={[0.2, 0, 0]} ref={j2} {...SEGMENT_PROPS}>
           <BallCollider args={[0.1]} />
         </RigidBody>
-        <RigidBody position={[1.5, 0, 0]} ref={j3} {...SEGMENT_PROPS}>
+        <RigidBody position={[0.3, 0, 0]} ref={j3} {...SEGMENT_PROPS}>
           <BallCollider args={[0.1]} />
         </RigidBody>
         <RigidBody
-          position={[2, 0, 0]}
+          position={[0.4, 0, 0]}
           ref={card}
           {...SEGMENT_PROPS}
           type={dragOffset ? "kinematicPosition" : "dynamic"}
         >
-          <CuboidCollider args={[0.4, 0.57, 0.02]} />
+          <CuboidCollider args={[0.68, 0.96, 0.025]} />
           <group
             onPointerOver={() => setHovered(true)}
             onPointerOut={() => setHovered(false)}
@@ -118,14 +140,8 @@ export default function Band() {
               setDragOffset(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation())));
             }}
           >
-            <RoundedBox args={[0.8, 1.13, 0.03]} radius={0.05} smoothness={4}>
-              <meshPhysicalMaterial
-                map={texture}
-                roughness={0.4}
-                clearcoat={0.6}
-                clearcoatRoughness={0.3}
-                metalness={0.1}
-              />
+            <RoundedBox args={[1.36, 1.92, 0.05]} radius={0.08} smoothness={4}>
+              <meshStandardMaterial map={texture} roughness={0.85} metalness={0} />
             </RoundedBox>
           </group>
         </RigidBody>
@@ -135,7 +151,7 @@ export default function Band() {
         <meshLineGeometry />
         <meshLineMaterial
           color="#b8ff3d"
-          lineWidth={0.06}
+          lineWidth={0.09}
           resolution={[width, height]}
           depthTest={false}
         />
