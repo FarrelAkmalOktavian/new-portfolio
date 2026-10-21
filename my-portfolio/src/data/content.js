@@ -104,7 +104,6 @@ export const caseStudies = [
     role: "Designer",
     summary:
       "Desain web landing page profesional dan modern untuk golf academy",
-    outcome: "Tulis dampak/metrik nyata di sini kalau ada.",
     link: "https://dribbble.com/shots/27667764-Golfdemy-Golf-Academy-Landing-Page",
     image: golfdemyImage,
     imageAlt: "Cover dribbble desain",
@@ -118,7 +117,6 @@ export const caseStudies = [
     role: "Designer",
     summary:
       "Desain dashboard untuk pengelolaan crypto",
-    outcome: "Tulis dampak/metrik nyata di sini kalau ada.",
     link: "https://dribbble.com/shots/26220032-Fripto-Crypto-Management-Dashboard",
     image: friptoImage,
     imageAlt: "Cover dribbble desain",
